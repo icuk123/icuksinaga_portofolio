@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Icuk Pande Sinaga | Portofolio Teknik Elektro - IoT, Embedded Systems & Robotics</title>
+    
+    <!-- Meta SEO -->
+    <meta name="description" content="Portofolio profesional Icuk Pande Sinaga, mahasiswa Teknik Elektro Semester 7. Spesialisasi di bidang Internet of Things (IoT), Embedded Systems, dan Robotics. Lihat proyek dan keahlian saya.">
+    <meta name="keywords" content="Teknik Elektro, Portofolio, IoT, Internet of Things, Embedded Systems, Robotics, Mikrokontroler, ROS, Arduino, ESP32, STM32, Mahasiswa Semester 7, Kerja Praktik">
+    <meta name="author" content="Icuk Pande Sinaga">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph (Facebook / LinkedIn) -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Icuk Pande Sinaga | Portofolio Teknik Elektro - IoT, Embedded Systems & Robotics">
+    <meta property="og:description" content="Portofolio mahasiswa Teknik Elektro Semester 7 dengan keahlian di bidang IoT, Embedded Systems, dan Robotics.">
+    <meta property="og:image" content="assets/og-image.jpg">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="Icuk Pande Sinaga | Portofolio Teknik Elektro - IoT, Embedded Systems & Robotics">
+    <meta property="twitter:description" content="Portofolio mahasiswa Teknik Elektro Semester 7 dengan keahlian di bidang IoT, Embedded Systems, dan Robotics.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- CSS Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Canvas Animasi Sirkuit (Background) -->
+    <canvas id="circuitCanvas"></canvas>
+
+    <!-- Header / Navigation Bar -->
+    <header class="header">
+        <div class="container nav-container">
+            <a href="#home" class="logo" id="navLogo">
+                <span class="logo-accent">&lt;</span>IPS<span class="logo-accent">/&gt;</span>
+            </a>
+            
+            <!-- Mobile Menu Toggle -->
+            <button class="mobile-toggle" aria-label="Toggle Menu" id="mobileToggle">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="4" y1="12" x2="20" y2="12" class="line-1"></line>
+                    <line x1="4" y1="6" x2="20" y2="6" class="line-2"></line>
+                    <line x1="4" y1="18" x2="20" y2="18" class="line-3"></line>
+                </svg>
+            </button>
+
+            <!-- Navigation Links -->
+            <nav class="nav-menu" id="navMenu">
+                <ul>
+                    <li><a href="#home" class="nav-link active">Home</a></li>
+                    <li><a href="#about" class="nav-link">Tentang</a></li>
+                    <li><a href="#fields" class="nav-link">Bidang Minat</a></li>
+                    <li><a href="#projects" class="nav-link">Proyek</a></li>
+                    <li><a href="#contact" class="nav-link">Kontak</a></li>
+                </ul>
+            </nav>
+            
+            <div class="nav-cta">
+                <a href="#contact" class="btn btn-outline btn-sm">Hubungi Saya</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        
+        <!-- Hero Section -->
+        <section id="home" class="hero-section">
+            <div class="container hero-container">
+                <div class="hero-content">
+                    <div class="badge-tech">
+                        <span class="pulse-dot"></span>
+                        Mahasiswa Teknik Elektro - Semester 7
+                    </div>
+                    <h1 class="hero-title">
+                        Membangun Masa Depan Dengan <span class="text-glow cyan">IoT</span>, 
+                        <span class="text-glow green">Embedded</span>, &amp; <span class="text-glow purple">Robotika</span>
+                    </h1>
+                    <p class="hero-subtitle">
+                        Halo! Saya <strong>Icuk Pande Sinaga</strong>. Saya mendedikasikan studi saya untuk merancang sistem cerdas yang menjembatani dunia digital dan fisik melalui integrasi hardware, firmware yang dioptimalkan, serta sistem otomasi cerdas.
+                    </p>
+                    
+                    <div class="hero-actions">
+                        <a href="#projects" class="btn btn-primary">
+                            <span>Lihat Proyek</span>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                        </a>
+                        <a href="#about" class="btn btn-secondary">Pelajari Tentang Saya</a>
+                    </div>
+
+                    <!-- Social Icons -->
+                    <div class="hero-socials">
+                        <a href="https://github.com/icuk123" target="_blank" rel="noopener noreferrer" class="social-link" title="GitHub" id="githubLink">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                        </a>
+                        <a href="https://www.linkedin.com/in/icuk-pande-sinaga" target="_blank" rel="noopener noreferrer" class="social-link" title="LinkedIn" id="linkedinLink">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                        </a>
+                        <a href="mailto:icukpande@gmail.com" class="social-link" title="Email" id="emailLink">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Hero Abstract Circuit Graphics -->
+                <div class="hero-graphics">
+                    <div class="circuit-board-wrapper">
+                        <div class="glowing-orb cyan-orb"></div>
+                        <div class="glowing-orb purple-orb"></div>
+                        <div class="pcb-board">
+                            <!-- Custom SVG PCB pattern -->
+                            <svg viewBox="0 0 300 300" class="svg-pcb">
+                                <rect x="20" y="20" width="260" height="260" rx="15" fill="#11131e" stroke="#2a2e45" stroke-width="3" />
+                                <!-- Circuits lines -->
+                                <path d="M50,50 L120,50 L150,80 L150,150 L180,180 L250,180" stroke="var(--accent-cyan)" stroke-dasharray="1000" stroke-dashoffset="0" stroke-width="2" fill="none" class="pcb-trace trace-1"/>
+                                <path d="M250,100 L180,100 L160,120 L160,180 L120,220 L50,220" stroke="var(--accent-green)" stroke-dasharray="1000" stroke-dashoffset="0" stroke-width="2" fill="none" class="pcb-trace trace-2"/>
+                                <path d="M100,250 L100,180 L130,150 L130,120 L170,80 L220,80" stroke="var(--accent-purple)" stroke-dasharray="1000" stroke-dashoffset="0" stroke-width="2" fill="none" class="pcb-trace trace-3"/>
+                                <!-- Microchip in the center -->
+                                <rect x="110" y="110" width="80" height="80" rx="6" fill="#1e2238" stroke="rgba(255,255,255,0.15)" stroke-width="2" class="pcb-chip-base" />
+                                <rect x="120" y="120" width="60" height="60" rx="4" fill="#0d0f17" />
+                                <text x="150" y="153" font-family="'Outfit', sans-serif" font-size="12" font-weight="bold" fill="white" text-anchor="middle" class="chip-text">MCU</text>
+                                <!-- Chip pins -->
+                                <g fill="#5e668f">
+                                    <!-- Top -->
+                                    <rect x="125" y="104" width="6" height="6" rx="1" />
+                                    <rect x="137" y="104" width="6" height="6" rx="1" />
+                                    <rect x="149" y="104" width="6" height="6" rx="1" />
+                                    <rect x="161" y="104" width="6" height="6" rx="1" />
+                                    <rect x="173" y="104" width="6" height="6" rx="1" />
+                                    <!-- Bottom -->
+                                    <rect x="125" y="190" width="6" height="6" rx="1" />
+                                    <rect x="137" y="190" width="6" height="6" rx="1" />
+                                    <rect x="149" y="190" width="6" height="6" rx="1" />
+                                    <rect x="161" y="190" width="6" height="6" rx="1" />
+                                    <rect x="173" y="190" width="6" height="6" rx="1" />
+                                    <!-- Left -->
+                                    <rect x="104" y="125" width="6" height="6" rx="1" />
+                                    <rect x="104" y="137" width="6" height="6" rx="1" />
+                                    <rect x="104" y="149" width="6" height="6" rx="1" />
+                                    <rect x="104" y="161" width="6" height="6" rx="1" />
+                                    <rect x="104" y="173" width="6" height="6" rx="1" />
+                                    <!-- Right -->
+                                    <rect x="190" y="125" width="6" height="6" rx="1" />
+                                    <rect x="190" y="137" width="6" height="6" rx="1" />
+                                    <rect x="190" y="149" width="6" height="6" rx="1" />
+                                    <rect x="190" y="161" width="6" height="6" rx="1" />
+                                    <rect x="190" y="173" width="6" height="6" rx="1" />
+                                </g>
+                                <!-- Terminals / Pads -->
+                                <circle cx="50" cy="50" r="5" fill="var(--accent-cyan)" class="pcb-pad pad-1" />
+                                <circle cx="250" cy="180" r="5" fill="var(--accent-cyan)" class="pcb-pad pad-2" />
+                                <circle cx="250" cy="100" r="5" fill="var(--accent-green)" class="pcb-pad pad-3" />
+                                <circle cx="50" cy="220" r="5" fill="var(--accent-green)" class="pcb-pad pad-4" />
+                                <circle cx="100" cy="250" r="5" fill="var(--accent-purple)" class="pcb-pad pad-5" />
+                                <circle cx="220" cy="80" r="5" fill="var(--accent-purple)" class="pcb-pad pad-6" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="about-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">01 // TENTANG SAYA</span>
+                    <h2 class="section-title">Akademik &amp; Kompetensi</h2>
+                    <div class="title-underline"></div>
+                </div>
+                
+                <div class="about-grid">
+                    <!-- Academic Info Card -->
+                    <div class="about-info-card glass-card">
+                        <h3>Perjalanan Akademik</h3>
+                        <p class="about-text">
+                            Sebagai mahasiswa Teknik Elektro semester 7, fokus saya mengarah pada pengembangan sistem terintegrasi yang membutuhkan sinergi antara hardware dan software. Saya memiliki minat mendalam dalam mengeksplorasi bagaimana perangkat kecil dapat saling terhubung dan melakukan pemrosesan data secara real-time.
+                        </p>
+                        <div class="academic-stats">
+                            <div class="stat-item">
+                                <span class="stat-number text-glow cyan">15+</span>
+                                <span class="stat-label">Node Sensor &amp; IoT</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number text-glow green">8+</span>
+                                <span class="stat-label">Sistem &amp; Robotik</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number text-glow purple">12+</span>
+                                <span class="stat-label">Proyek Rekayasa</span>
+                            </div>
+                        </div>
+                        <div class="academic-milestones">
+                            <h4>Fokus Studi Utama</h4>
+                            <ul class="milestone-list">
+                                <li>
+                                    <div class="milestone-icon">⚡</div>
+                                    <div><strong>Mikrokontroler &amp; Sistem Mikroprosesor</strong>: Arsitektur ARM Cortex-M, ESP32, AVR.</div>
+                                </li>
+                                <li>
+                                    <div class="milestone-icon">📶</div>
+                                    <div><strong>Sistem IoT &amp; Protokol Komunikasi</strong>: MQTT, HTTP, LoRaWAN, I2C, SPI, UART.</div>
+                                </li>
+                                <li>
+                                    <div class="milestone-icon">🤖</div>
+                                    <div><strong>Otomasi &amp; Robotika</strong>: Pemetaan SLAM, Integrasi ROS, Sistem Kontrol Feedback PID.</div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Skills Chart & Skillbars -->
+                    <div class="about-skills-card glass-card">
+                        <h3>Keahlian Teknis</h3>
+                        <p class="about-text">Berikut adalah peta keahlian teknis yang terus saya asah sepanjang perkuliahan dan proyek mandiri.</p>
+                        
+                        <div class="skills-container">
+                            <div class="skill-bar-wrapper">
+                                <div class="skill-info">
+                                    <span>Bahasa Pemrograman (C / C++, Python)</span>
+                                    <span>90%</span>
+                                </div>
+                                <div class="skill-track">
+                                    <div class="skill-progress" style="width: 90%; background-color: var(--accent-cyan);"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="skill-bar-wrapper">
+                                <div class="skill-info">
+                                    <span>Mikrokontroler &amp; Firmware (ESP32, STM32, Arduino)</span>
+                                    <span>85%</span>
+                                </div>
+                                <div class="skill-track">
+                                    <div class="skill-progress" style="width: 85%; background-color: var(--accent-green);"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="skill-bar-wrapper">
+                                <div class="skill-info">
+                                    <span>PCB Design &amp; Hardware Assembly (Eagle/Altium)</span>
+                                    <span>80%</span>
+                                </div>
+                                <div class="skill-track">
+                                    <div class="skill-progress" style="width: 80%; background-color: var(--accent-cyan);"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="skill-bar-wrapper">
+                                <div class="skill-info">
+                                    <span>Robot Operating System (ROS) &amp; SLAM</span>
+                                    <span>75%</span>
+                                </div>
+                                <div class="skill-track">
+                                    <div class="skill-progress" style="width: 75%; background-color: var(--accent-purple);"></div>
+                                </div>
+                            </div>
+
+                            <div class="skill-bar-wrapper">
+                                <div class="skill-info">
+                                    <span>Protokol Jaringan &amp; Cloud IoT (MQTT, ThingsBoard)</span>
+                                    <span>80%</span>
+                                </div>
+                                <div class="skill-track">
+                                    <div class="skill-progress" style="width: 80%; background-color: var(--accent-green);"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="skill-bar-wrapper">
+                                <div class="skill-info">
+                                    <span>Sistem Operasi Real-time (FreeRTOS)</span>
+                                    <span>70%</span>
+                                </div>
+                                <div class="skill-track">
+                                    <div class="skill-progress" style="width: 70%; background-color: var(--accent-purple);"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Mini Tags -->
+                        <div class="skill-tags">
+                            <span class="skill-tag-item">Linux</span>
+                            <span class="skill-tag-item">Git</span>
+                            <span class="skill-tag-item">MATLAB</span>
+                            <span class="skill-tag-item">KiCAD</span>
+                            <span class="skill-tag-item">Node-RED</span>
+                            <span class="skill-tag-item">OpenCV</span>
+                            <span class="skill-tag-item">PID Controller</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Fields of Interest Section -->
+        <section id="fields" class="fields-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">02 // SPESIALISASI</span>
+                    <h2 class="section-title">Bidang Yang Saya Minati</h2>
+                    <div class="title-underline"></div>
+                </div>
+                
+                <div class="fields-grid">
+                    <!-- IoT Card -->
+                    <div class="field-card glass-card border-glow-cyan" id="cardIoT">
+                        <div class="field-icon-wrapper cyan">
+                            <!-- IoT Icon -->
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                                <circle cx="12" cy="12" r="10" stroke-dasharray="3 3"></circle>
+                            </svg>
+                        </div>
+                        <h3 class="field-title text-glow cyan">Internet of Things</h3>
+                        <p class="field-desc">
+                            Menghubungkan perangkat keras ke internet untuk pengumpulan data nirkabel, monitoring real-time, dan otomasi jarak jauh. Berpengalaman menerapkan sistem telemetri sensor terdistribusi.
+                        </p>
+                        <ul class="field-topics">
+                            <li>Protokol: MQTT, CoAP, HTTP, LoRa</li>
+                            <li>Platform: ThingsBoard, Blynk, AWS IoT</li>
+                            <li>Perangkat: ESP32, ESP8266, Raspberry Pi</li>
+                            <li>Teknik: Low-Power Sleep, Mesh Network</li>
+                        </ul>
+                    </div>
+
+                    <!-- Embedded Systems Card -->
+                    <div class="field-card glass-card border-glow-green" id="cardEmbedded">
+                        <div class="field-icon-wrapper green">
+                            <!-- Microchip Icon -->
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect>
+                                <rect x="9" y="9" width="6" height="6"></rect>
+                                <line x1="9" y1="1" x2="9" y2="4"></line>
+                                <line x1="15" y1="1" x2="15" y2="4"></line>
+                                <line x1="9" y1="20" x2="9" y2="23"></line>
+                                <line x1="15" y1="20" x2="15" y2="23"></line>
+                                <line x1="20" y1="9" x2="23" y2="9"></line>
+                                <line x1="20" y1="15" x2="23" y2="15"></line>
+                                <line x1="1" y1="9" x2="4" y2="9"></line>
+                                <line x1="1" y1="15" x2="4" y2="15"></line>
+                            </svg>
+                        </div>
+                        <h3 class="field-title text-glow green">Embedded Systems</h3>
+                        <p class="field-desc">
+                            Merancang sirkuit elektronik khusus (PCB) dan memprogram firmware tingkat rendah yang andal. Fokus pada efisiensi daya, manajemen memori, dan komputasi real-time.
+                        </p>
+                        <ul class="field-topics">
+                            <li>Platform: STM32 (ARM Cortex), AVR, ESP-IDF</li>
+                            <li>RTOS: FreeRTOS, RT-Thread</li>
+                            <li>Bahasa: C, C++, Bare-metal Assembly</li>
+                            <li>Hardware: KiCad, Eagle, Logic Analyzer</li>
+                        </ul>
+                    </div>
+
+                    <!-- Robotics Card -->
+                    <div class="field-card glass-card border-glow-purple" id="cardRobotics">
+                        <div class="field-icon-wrapper purple">
+                            <!-- Robot Arm/Joint Icon -->
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                                <circle cx="12" cy="5" r="2"></circle>
+                                <path d="M12 7v4M8 5h8M6 16v2M18 16v2"></path>
+                            </svg>
+                        </div>
+                        <h3 class="field-title text-glow purple">Robotics</h3>
+                        <p class="field-desc">
+                            Mengintegrasikan sensor, aktuator, dan algoritma kontrol untuk memampukan mesin bergerak secara cerdas dan otonom. Tertarik pada robot navigasi darat dan lengan robotika.
+                        </p>
+                        <ul class="field-topics">
+                            <li>Framework: ROS (Robot Operating System) 1/2</li>
+                            <li>Navigasi: SLAM, LiDAR, AMCL, Obstacle Avoidance</li>
+                            <li>Kontrol: Algoritma PID, Kinematika Balik</li>
+                            <li>Vision: OpenCV, Pendeteksi Objek YOLO</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="projects-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">03 // KARYA SAYA</span>
+                    <h2 class="section-title">Showcase Proyek Rekayasa</h2>
+                    <div class="title-underline"></div>
+                </div>
+                
+                <!-- Filter Buttons -->
+                <div class="project-filters">
+                    <button class="filter-btn active" data-filter="all">Semua Proyek</button>
+                    <button class="filter-btn" data-filter="iot">IoT</button>
+                    <button class="filter-btn" data-filter="embedded">Embedded</button>
+                    <button class="filter-btn" data-filter="robotics">Robotics</button>
+                </div>
+                
+                <!-- Projects Grid -->
+                <div class="projects-grid" id="projectsGrid">
+                    <!-- Project 1 (IoT) -->
+                    <div class="project-card glass-card" data-category="iot" id="project1">
+                        <div class="project-img-placeholder iot-bg">
+                            <span class="img-tech-tag">LoRaWAN</span>
+                            <!-- Visual Graphic Overlay for IoT -->
+                            <div class="project-graphic">
+                                <svg viewBox="0 0 100 100" class="mini-graphic">
+                                    <circle cx="50" cy="50" r="30" fill="none" stroke="var(--accent-cyan)" stroke-width="2" stroke-dasharray="5 3"/>
+                                    <circle cx="50" cy="50" r="10" fill="var(--accent-cyan)" />
+                                    <circle cx="20" cy="30" r="4" fill="var(--text-secondary)" />
+                                    <circle cx="80" cy="30" r="4" fill="var(--text-secondary)" />
+                                    <circle cx="50" cy="85" r="4" fill="var(--text-secondary)" />
+                                    <line x1="50" y1="50" x2="20" y2="30" stroke="var(--accent-cyan)" stroke-width="1"/>
+                                    <line x1="50" y1="50" x2="80" y2="30" stroke="var(--accent-cyan)" stroke-width="1"/>
+                                    <line x1="50" y1="50" x2="50" y2="85" stroke="var(--accent-cyan)" stroke-width="1"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <span class="project-category text-cyan">INTERNET OF THINGS</span>
+                            <h3 class="project-title">Smart Agriculture Telemetry System</h3>
+                            <p class="project-desc">Sistem telemetri nirkabel berbasis ESP32 dan LoRa untuk memantau kelembaban tanah, suhu lingkungan, dan intensitas cahaya jarak jauh...</p>
+                            <div class="project-tags">
+                                <span>ESP32</span>
+                                <span>LoRa</span>
+                                <span>MQTT</span>
+                                <span>ThingsBoard</span>
+                            </div>
+                            <button class="btn-text btn-detail-trigger" data-project-id="1">
+                                Selengkapnya
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Project 2 (Embedded) -->
+                    <div class="project-card glass-card" data-category="embedded" id="project2">
+                        <div class="project-img-placeholder embedded-bg">
+                            <span class="img-tech-tag">STM32 MCU</span>
+                            <!-- Visual Graphic Overlay for Embedded -->
+                            <div class="project-graphic">
+                                <svg viewBox="0 0 100 100" class="mini-graphic">
+                                    <rect x="25" y="25" width="50" height="50" rx="4" fill="none" stroke="var(--accent-green)" stroke-width="2"/>
+                                    <line x1="25" y1="35" x2="15" y2="35" stroke="var(--accent-green)" stroke-width="2"/>
+                                    <line x1="25" y1="50" x2="15" y2="50" stroke="var(--accent-green)" stroke-width="2"/>
+                                    <line x1="25" y1="65" x2="15" y2="65" stroke="var(--accent-green)" stroke-width="2"/>
+                                    <line x1="75" y1="35" x2="85" y2="35" stroke="var(--accent-green)" stroke-width="2"/>
+                                    <line x1="75" y1="50" x2="85" y2="50" stroke="var(--accent-green)" stroke-width="2"/>
+                                    <line x1="75" y1="65" x2="85" y2="65" stroke="var(--accent-green)" stroke-width="2"/>
+                                    <line x1="35" y1="25" x2="35" y2="15" stroke="var(--accent-green)" stroke-width="2"/>
+                                    <line x1="50" y1="25" x2="50" y2="15" stroke="var(--accent-green)" stroke-width="2"/>
+                                    <line x1="65" y1="25" x2="65" y2="15" stroke="var(--accent-green)" stroke-width="2"/>
+                                    <line x1="35" y1="75" x2="35" y2="85" stroke="var(--accent-green)" stroke-width="2"/>
+                                    <line x1="50" y1="75" x2="50" y2="85" stroke="var(--accent-green)" stroke-width="2"/>
+                                    <line x1="65" y1="75" x2="65" y2="85" stroke="var(--accent-green)" stroke-width="2"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <span class="project-category text-green">EMBEDDED SYSTEMS</span>
+                            <h3 class="project-title">Low-Power Weather Station Node</h3>
+                            <p class="project-desc">Stasiun cuaca berbasis mikrokontroler STM32 ultra-low-power. Dioptimalkan dengan konfigurasi deep-sleep state untuk...</p>
+                            <div class="project-tags">
+                                <span>STM32L4</span>
+                                <span>FreeRTOS</span>
+                                <span>I2C/SPI</span>
+                                <span>PCB Design</span>
+                            </div>
+                            <button class="btn-text btn-detail-trigger" data-project-id="2">
+                                Selengkapnya
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Project 3 (Robotics) -->
+                    <div class="project-card glass-card" data-category="robotics" id="project3">
+                        <div class="project-img-placeholder robotics-bg">
+                            <span class="img-tech-tag">ROS / LiDAR</span>
+                            <!-- Visual Graphic Overlay for Robotics -->
+                            <div class="project-graphic">
+                                <svg viewBox="0 0 100 100" class="mini-graphic">
+                                    <circle cx="50" cy="50" r="20" fill="none" stroke="var(--accent-purple)" stroke-width="2"/>
+                                    <circle cx="50" cy="50" r="5" fill="var(--accent-purple)"/>
+                                    <!-- Rotating Scanner beam -->
+                                    <line x1="50" y1="50" x2="68" y2="35" stroke="var(--accent-purple)" stroke-width="1.5"/>
+                                    <polygon points="68,35 64,30 73,31" fill="var(--accent-purple)" />
+                                    <!-- Robot base layout -->
+                                    <rect x="25" y="72" width="50" height="15" rx="3" fill="none" stroke="var(--text-secondary)" stroke-width="1.5" />
+                                    <circle cx="35" cy="87" r="6" fill="var(--bg-primary)" stroke="var(--text-secondary)" stroke-width="1.5" />
+                                    <circle cx="65" cy="87" r="6" fill="var(--bg-primary)" stroke="var(--text-secondary)" stroke-width="1.5" />
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <span class="project-category text-purple">ROBOTICS</span>
+                            <h3 class="project-title">Autonomous Warehouse AGV</h3>
+                            <p class="project-desc">Robot pemandu otomatis (Automated Guided Vehicle) skala laboratorium dengan LiDAR untuk lokalisasi SLAM dan navigasi otonom...</p>
+                            <div class="project-tags">
+                                <span>ROS 2</span>
+                                <span>LiDAR</span>
+                                <span>SLAM Mobile</span>
+                                <span>Python</span>
+                            </div>
+                            <button class="btn-text btn-detail-trigger" data-project-id="3">
+                                Selengkapnya
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Project 4 (IoT + Robotics) -->
+                    <div class="project-card glass-card" data-category="robotics" id="project4">
+                        <div class="project-img-placeholder iot-robotics-bg">
+                            <span class="img-tech-tag">ESP32 + OpenCV</span>
+                            <!-- Visual Graphic Overlay for Combined -->
+                            <div class="project-graphic">
+                                <svg viewBox="0 0 100 100" class="mini-graphic">
+                                    <!-- robotic arm -->
+                                    <path d="M20,80 L40,80 L50,55 L75,55 L80,65" fill="none" stroke="var(--accent-purple)" stroke-width="3" stroke-linecap="round"/>
+                                    <!-- Camera lens -->
+                                    <rect x="68" y="20" width="16" height="12" rx="2" fill="var(--accent-cyan)" />
+                                    <circle cx="76" cy="26" r="3" fill="var(--bg-primary)" />
+                                    <line x1="76" y1="32" x2="76" y2="55" stroke="var(--accent-cyan)" stroke-dasharray="2 2" stroke-width="1" />
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <span class="project-category text-purple">ROBOTICS / IOT</span>
+                            <h3 class="project-title">IoT-Enabled Robotic Sorting Arm</h3>
+                            <p class="project-desc">Lengan robot 4-DOF yang mengklasifikasikan barang berdasarkan warna menggunakan OpenCV dan mengirim log ke dashboard IoT ThingsBoard...</p>
+                            <div class="project-tags">
+                                <span>ESP32</span>
+                                <span>OpenCV</span>
+                                <span>PCA9685</span>
+                                <span>ThingsBoard</span>
+                            </div>
+                            <button class="btn-text btn-detail-trigger" data-project-id="4">
+                                Selengkapnya
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">04 // HUBUNGI SAYA</span>
+                    <h2 class="section-title">Mulai Kolaborasi</h2>
+                    <div class="title-underline"></div>
+                </div>
+                
+                <div class="contact-grid">
+                    <!-- Contact Information -->
+                    <div class="contact-info-card glass-card">
+                        <h3>Hubungi Informasi</h3>
+                        <p class="contact-subtext">Saya tertarik mendiskusikan peluang kerja praktik, proyek penelitian, kolaborasi pengembangan produk IoT, Embedded, atau Robotika.</p>
+                        
+                        <div class="contact-details">
+                            <div class="contact-item">
+                                <div class="contact-icon cyan">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                                </div>
+                                <div>
+                                    <span class="contact-label">Email Resmi</span>
+                                    <a href="mailto:icukpande@gmail.com" class="contact-value">icukpande@gmail.com</a>
+                                </div>
+                            </div>
+                            
+                            <div class="contact-item">
+                                <div class="contact-icon green">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                                </div>
+                                <div>
+                                    <span class="contact-label">Lokasi Saat Ini</span>
+                                    <a href="https://www.google.com/maps/search/?api=1&query=Jl.+Griya+Anggun+II+No.a414,+Cibeunying,+Kec.Cimenyan,+Kabupaten+Bandung,+Jawa+Barat+40191,+Indonesia" target="_blank" rel="noopener noreferrer" class="contact-value">Jl. Griya Anggun II No.a414, Cibeunying, Kec.Cimenyan, Kabupaten Bandung, Jawa Barat 40191, Indonesia</a>
+                                </div>
+                            </div>
+                            
+                            <div class="contact-item">
+                                <div class="contact-icon purple">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+                                </div>
+                                <div>
+                                    <span class="contact-label">Universitas</span>
+                                    <a href="https://maps.app.goo.gl/Ye7hx97KyMyjXg4t9" target="_blank" rel="noopener noreferrer" class="contact-value">Institut Teknologi Del</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Circuit Line Decor -->
+                        <div class="contact-decor-circuit">
+                            <svg viewBox="0 0 200 80" class="svg-decor">
+                                <path d="M10,40 L80,40 L100,60 L180,60" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="2"/>
+                                <circle cx="180" cy="60" r="4" fill="var(--accent-purple)" />
+                                <circle cx="10" cy="40" r="4" fill="var(--accent-cyan)" />
+                            </svg>
+                        </div>
+                    </div>
+                    
+                    <!-- Contact Form -->
+                    <div class="contact-form-card glass-card">
+                        <h3>Kirim Pesan</h3>
+                        <form id="contactForm" class="contact-form" action="https://formsubmit.co/icukpande@gmail.com" method="POST">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="name">Nama Lengkap</label>
+                                    <input type="text" id="name" name="name" placeholder="Nama Anda" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Alamat Email</label>
+                                    <input type="email" id="email" name="email" placeholder="nama@perusahaan.com" required>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="subject">Subjek</label>
+                                <input type="text" id="subject" name="subject" placeholder="Topik Pembicaraan" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="message">Pesan Anda</label>
+                                <textarea id="message" name="message" rows="5" placeholder="Tulis rincian pesan Anda di sini..." required></textarea>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary btn-block" id="formSubmitBtn">
+                                <span>Kirim Pesan</span>
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                            </button>
+                        </form>
+                        
+                        <!-- Success Message -->
+                        <div class="form-success-alert hidden" id="formSuccessAlert">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="success-icon"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                            <div>
+                                <h4>Pesan Berhasil Dikirim!</h4>
+                                <p>Terima kasih atas pesan Anda. Saya akan segera menghubungi Anda kembali.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-container">
+            <div class="footer-left">
+                <a href="#home" class="logo">
+                    <span class="logo-accent">&lt;</span>IPS<span class="logo-accent">/&gt;</span>
+                </a>
+                <p class="footer-desc">Pembuatan sistem pintar yang mengintegrasikan Hardware, Firmware, dan Software.</p>
+            </div>
+            
+            <div class="footer-right">
+                <div class="footer-nav">
+                    <h4>Navigasi</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">Tentang</a></li>
+                        <li><a href="#fields">Minat</a></li>
+                        <li><a href="#projects">Proyek</a></li>
+                        <li><a href="#contact">Kontak</a></li>
+                    </ul>
+                </div>
+                <div class="footer-social">
+                    <h4>Sosial</h4>
+                    <div class="social-row">
+                        <a href="https://github.com/icuk123" target="_blank" rel="noopener noreferrer">GitHub</a>
+                        <a href="https://www.linkedin.com/in/icuk-pande-sinaga" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2026 Icuk Pande Sinaga. All rights reserved. | Dibuat khusus untuk Kerja Praktik / Portofolio Teknik Elektro.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal Detail Proyek (Hidden by default) -->
+    <div class="modal-overlay hidden" id="projectModal">
+        <div class="modal-content glass-card">
+            <button class="modal-close-btn" id="modalCloseBtn" aria-label="Tutup Detail Proyek">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+            </button>
+            <div class="modal-body" id="modalBody">
+                <!-- Content injected dynamically via script.js -->
+            </div>
+        </div>
+    </div>
+
+    <!-- JS Scripts -->
+    <script src="script.js"></script>
+</body>
+</html>
