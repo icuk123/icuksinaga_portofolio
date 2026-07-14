@@ -353,6 +353,21 @@ const projectDetailsData = {
         problem: 'Proses penyortiran barang berdasarkan properti visual di industri berskala kecil masih didominasi secara manual yang rentan terhadap human error dan tidak terintegrasi ke sistem data pabrik.',
         solution: 'Membangun lengan robot 4 sumbu (4-DOF) yang dikombinasikan dengan kamera webcam dan sistem computer vision Python OpenCV di komputer pusat. Lengan mendeteksi jenis/warna barang, menyortirnya secara dinamis, dan mengirimkan metrik operasional harian ke sistem server dashboard ThingsBoard.',
         implementation: `Kamera webcam mengambil gambar secara real-time dari conveyor. Script Python mendeteksi warna barang dengan filter ruang warna HSV dan melacak centroid objek menggunakan OpenCV. Koordinat target dikonversi menjadi sudut servo menggunakan kinematika balik. Sudut servo dikirimkan ke ESP32 melalui protokol serial, yang menggerakkan driver PWM PCA9685. Data jumlah barang tersortir dipublikasikan ke cloud via broker MQTT.`
+    },
+    '5': {
+        title: 'Real-Time Machine Vibration Monitor',
+        category: 'Embedded Systems',
+        class: 'embedded',
+        tools: ['Zephyr RTOS', 'STM32 MCU', 'IIS3DWB Sensor', 'SPI Bus Driver', 'C Language', 'Predictive Maintenance'],
+        metrics: {
+            'Sampling Rate': '26.6 kHz (High Freq)',
+            'Sensitivitas': '±2g / ±4g / ±8g / ±16g',
+            'Akurasi Sinyal': 'Ultra Low Noise (90 ug/√Hz)',
+            'Protokol Bus': 'SPI (Up to 10 MHz)'
+        },
+        problem: 'Mesin industri berputar sering kali mengalami kerusakan mendadak akibat ketidakseimbangan (unbalance) atau kerusakan bearing. Pemantauan manual berkala tidak cukup untuk mendeteksi gejala awal kerusakan mikro secara real-time.',
+        solution: 'Membangun node sensor monitoring getaran akselerometer 3-sumbu dengan sensor getaran digital ultra-low noise STMicroelectronics IIS3DWB. Node diprogram menggunakan sistem operasi Zephyr RTOS pada MCU STM32 untuk mengambil data akselerasi frekuensi tinggi secara real-time melalui komunikasi bus SPI, melakukan pemrosesan awal, dan mengirimkan indikator anomali.',
+        implementation: `Driver ditulis dalam bahasa C untuk mengonfigurasi register sensor IIS3DWB (register kontrol, FIFO buffer). Memanfaatkan fitur FIFO internal sensor untuk mengumpulkan data akselerasi 3-sumbu pada kecepatan sampling hingga 26.6 kHz sebelum memicu interupsi ke MCU. Firmware berjalan sebagai thread khusus di Zephyr RTOS, memanfaatkan Device Tree (dts) dan overlay file untuk mendefinisikan koneksi hardware SPI dan interupsi GPIO secara modular.`
     }
 };
 
@@ -518,7 +533,7 @@ class RobotOdomNode(Node):
         # Calculate kinematics updates...
         self.odom_pub.publish(msg)
 `;
-    } else {
+    } else if (id === '4') {
         return `# Python OpenCV Color Detection
 import cv2
 import numpy as np
@@ -541,7 +556,24 @@ def detect_object_color(frame):
             cy = int(M['m01']/M['m00'])
             return cx, cy # Target center coordinate
     return None`;
-}
+    } else {
+        return `// IIS3DWB Register Configuration (Zephyr RTOS)
+#include <zephyr/kernel.h>
+#include <zephyr/device.h>
+#include <zephyr/drivers/spi.h>
+
+#define IIS3DWB_REG_CTRL1_XL 0x10
+#define IIS3DWB_REG_FIFO_CTRL4 0x0D
+
+int iis3dwb_init_sensor(const struct device *spi_dev) {
+    uint8_t ctrl1_val = 0xA0; // 26.6 kHz ODR, 3-axis active
+    uint8_t fifo_val = 0x06;  // Continuous FIFO mode
+    
+    spi_write_reg(spi_dev, IIS3DWB_REG_CTRL1_XL, ctrl1_val);
+    spi_write_reg(spi_dev, IIS3DWB_REG_FIFO_CTRL4, fifo_val);
+    return 0;
+}`;
+    }
 }
 
 /* ==========================================================================
